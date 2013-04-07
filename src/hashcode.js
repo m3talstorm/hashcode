@@ -1,5 +1,5 @@
 /*
- * Hashcode.js 1.0.0
+ * Hashcode.js 1.0.1
  * https://github.com/stuartbannerman/hashcode
  *
  * Copyright 2013 Stuart Bannerman (me@stuartbannerman.com)    
