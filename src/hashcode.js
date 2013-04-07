@@ -49,7 +49,7 @@
             };
             var type = typeof value;
             
-            return types[type] && types[type](value) || 0;
+            return types[type] && types[type](value) + hash(type) || 0;
         };
         
         return {            
