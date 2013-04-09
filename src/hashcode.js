@@ -1,5 +1,5 @@
 /*
- * Hashcode.js 1.0.1
+ * Hashcode.js 1.0.2
  * https://github.com/stuartbannerman/hashcode
  *
  * Copyright 2013 Stuart Bannerman (me@stuartbannerman.com)    
@@ -31,7 +31,7 @@
             {
                 if(obj.hasOwnProperty(property))
                 {
-                    result += value(obj[property]) + hash(property);
+                    result += hash(property + value(obj[property]));
                 }
             }
             
@@ -44,12 +44,14 @@
             {
                 'string' : hash,
                 'number' : hash,
-                'object' : object,
-                'function' : 0
+                'boolean' : hash,
+                'object' : object
+                // functions are excluded because they are not representative of the state of an object
+                // types 'undefined' or 'null' will have a hash of 0
             };
             var type = typeof value;
             
-            return types[type] && types[type](value) + hash(type) || 0;
+            return value != null && types[type] ? types[type](value) + hash(type) : 0;
         };
         
         return {            
