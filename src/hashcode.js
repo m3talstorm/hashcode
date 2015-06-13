@@ -2,16 +2,19 @@
  * Hashcode.js 1.0.2
  * https://github.com/stuartbannerman/hashcode
  *
- * Copyright 2013 Stuart Bannerman (me@stuartbannerman.com)    
+ * Copyright 2013 Stuart Bannerman (me@stuartbannerman.com)
  * Released under the MIT license
  *
  * Date: 07-04-2013
  */
- 
+
 (function(window)
 {
     window.Hashcode = (function()
-    {        
+    {
+        // Used to check objects for own properties
+        var hasOwnProperty = Object.prototype.hasOwnProperty;
+
         // Hashes a string
         var hash = function(string)
         {
@@ -29,12 +32,12 @@
             var result = 0;
             for(var property in obj)
             {
-                if(obj.hasOwnProperty(property))
+                if(hasOwnProperty.call(obj, property))
                 {
                     result += hash(property + value(obj[property]));
                 }
             }
-            
+
             return result;
         };
         // Does a type check on the passed in value and calls the appropriate hash method
@@ -50,11 +53,11 @@
                 // types 'undefined' or 'null' will have a hash of 0
             };
             var type = typeof value;
-            
+
             return value != null && types[type] ? types[type](value) + hash(type) : 0;
         };
-        
-        return {            
+
+        return {
             value: value
         };
     })();
