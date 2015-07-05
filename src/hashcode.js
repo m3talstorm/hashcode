@@ -29,6 +29,9 @@
         // Deep hashes an object
         var object = function(obj)
         {
+            if (typeof obj.getTime=='function') {
+                return obj.getTime();
+            }
             var result = 0;
             for(var property in obj)
             {
