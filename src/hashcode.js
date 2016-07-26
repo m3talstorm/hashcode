@@ -1,6 +1,6 @@
 /*
- * Hashcode.js 1.0.2
- * https://github.com/stuartbannerman/hashcode
+ * Hashcode.js 1.0.3
+ * https://github.com/m3talstorm/hashcode
  *
  * Copyright 2013 Stuart Bannerman (me@stuartbannerman.com)
  * Released under the MIT license
@@ -19,7 +19,7 @@
         var hash = function(string)
         {
             var string = string.toString(), hash = 0, i;
-            for (i = 0; i < string.length; i++)
+            for(i = 0; i < string.length; i++)
             {
                 hash = (((hash << 5) - hash) + string.charCodeAt(i)) & 0xFFFFFFFF;
             }
@@ -29,6 +29,11 @@
         // Deep hashes an object
         var object = function(obj)
         {
+            if(typeof obj.getTime == 'function')
+            {
+                 return obj.getTime();
+            }
+
             var result = 0;
             for(var property in obj)
             {
