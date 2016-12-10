@@ -1,0 +1,36 @@
+{
+  "name": "hashcode",
+  "version": "1.0.0",
+  "description": "Hashcode.js is a simple JavaScript module for generating hashcodes (integer representations) of objects.",
+  "main": "index.js",
+  "files": [
+    "lib",
+    "index.js",
+    "LICENSE"
+  ],
+  "scripts": {
+  },
+  "dependencies": {
+  },
+  "engines": {
+    "node": ">=4.4.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/m3talstorm/hashcode"
+  },
+  "bugs": {
+    "url": "https://github.com/m3talstorm/hashcode/issues"
+  },
+  "keywords": [
+    "hash",
+    "hashcode",
+    "hashing",
+    "node",
+    "nodejs"
+  ],
+  "author": "Stuart Bannerman",
+  "contributors": [
+  ],
+  "license": "MIT"
+}
